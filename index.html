@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b7c985adfd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="myDIV" class="header">
+      <h2>Ma liste de Mémo...</h2>
+      <input type="text" id="myInput2" placeholder="Ajouter une Catégorie">
+      <button onclick="newList()" class="addBtn">Add</button>
+      <input type="text" id="myInput" placeholder="Ajouter un Mémo">
+      <button onclick="newElement()" class="addBtn">Add</button>
+        <div id ="btn" class="btn-group bg-dark" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+          <label class="btn btn-outline-light" id="btnradio1" for="btnradio1">Voyage</label>
+        
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+          <label class="btn btn-outline-light" id="btnradio2" for="btnradio2">Travail</label>
+        
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+          <label class="btn btn-outline-light" id="btnradio3" for="btnradio3">Loisir</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+          <label class="btn btn-outline-light" id="btnradio4" for="btnradio4">Rendez-vous</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+          <label class="btn btn-outline-light" id="btnradio5" for="btnradio5">Sport</label>
+
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+          <label class="btn btn-outline-light" id="btnradio6" for="btnradio6">Jeu vidéo</label>
+        </div>
+    </div>
+      
+      
+      <script>
+        function dragstart_handler(ev) {
+         // On ajoute l'identifiant de l'élément cible à l'objet de transfert
+         ev.dataTransfer.setData("application/my-app", ev.target.id);
+         ev.dataTransfer.dropEffect = "move";
+        }
+        function dragover_handler(ev) {
+         ev.preventDefault();
+         ev.dataTransfer.dropEffect = "move"
+        }
+        function drop_handler(ev) {
+         ev.preventDefault();
+         // On obtient l'identifiant de la cible et on ajoute l'élément déplacé
+         // au DOM de la cible
+         var data = ev.dataTransfer.getData("application/my-app");
+         ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+
+        <!-- Grille -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+
+        <div class="dépôt" id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+
+        <!-- Première card -->
+        <div id="card">
+          <div class="card text-dark" id="c1" draggable="true" ondragstart="dragstart_handler(event)" style="width: 18rem;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row p-0">
+                  <div id="m1" class="col-10 text-dark text-center">Voyage
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m1')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                  </div>
+                  <div class="col-1">
+                    <button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c1','btnradio1')"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul id="myUL1">
+              <div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+            </ul>
+          </div>
+          <!-- Deuxième card -->
+          <div class="card text-dark" id="c2" draggable="true" ondragstart="dragstart_handler(event)" style="width: 18rem;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row p-0">
+                  <div id="m2" class="col-10 text-dark text-center">Travail
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m2')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                  </div>
+                  <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c2', 'btnradio2')"></button></div>
+                </div>
+              </div>
+            </div>
+            <ul id="myUL2">
+              <div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+            </ul>
+          </div>
+
+          <!-- Troisième card -->
+          <div class="card text-dark" id="c3" draggable="true" ondragstart="dragstart_handler(event)" style="width: 18rem;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row p-0">
+                  <div id="m3" class="col-10 text-dark text-center">Loisir
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m3')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                  </div>
+                  <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c3', 'btnradio3')"></button></div>
+                </div>
+              </div>
+            </div>
+            <ul id="myUL3">
+              <div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+            </ul>
+          </div>
+
+          <!-- Quatrième card -->
+          <div class="card text-dark" id="c4" draggable="true" ondragstart="dragstart_handler(event)" style="width: 18rem;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row p-0">
+                  <div id="m4" class="col-10 text-dark text-center">Rendez-vous
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m4')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                  </div>
+                  <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c4', 'btnradio4')"></button></div>
+                </div>
+              </div>
+            </div>
+            <ul id="myUL4">
+              <div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+            </ul>
+          </div>
+
+          <!-- Cinquième card -->
+          <div class="card text-dark" id="c5" draggable="true" ondragstart="dragstart_handler(event)" style="width: 18rem;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row p-0">
+                  <div id="m5" class="col-10 text-dark text-center">Sport
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m5')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                  </div>
+                  <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c5', 'btnradio5')"></button></div>
+                </div>
+              </div>
+            </div>
+            <ul id="myUL5">
+              <div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+            </ul>
+          </div>
+
+          <!-- Sixième card -->
+          <div class="card text-dark" id="c6" draggable="true" ondragstart="dragstart_handler(event)" style="width: 18rem;">
+            <div class="card-header">
+              <div class="container">
+                <div class="row p-0">
+                  <div id="m6" class="col-10 text-dark text-center">Jeu Vidéo
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m6')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                  </div>
+                  <div class="col-1">
+                    <button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c6', 'btnradio6')"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul id="myUL6">
+              <div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Zone pour le dépôt</div>
+            </ul>
+          </div>
+        </div>
+        </div>
+        <div class="col-9">
+        <div class="container-sm">
+        <div class="row row-cols-4 text-center">
+          <div class="col col-lg-4 border border-light text-center border border-3"></span><div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"><p class="text-decoration-underline">Liste n°1:</p></div></div>
+          <div class="col col-lg-4 border border-light text-center border border-3"></span><div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"><p class="text-decoration-underline">Liste n°2:</p></div></div>
+          <div class="col col-lg-4 border border-light text-center border border-3"></span><div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"><p class="text-decoration-underline">Liste n°3:</p></div></div>
+          <div class="col col-lg-4 border border-light text-center border border-3"></span><div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"><p class="text-decoration-underline">Liste n°4:</p></div></div>
+          <div class="col col-lg-4 border border-light text-center border border-3"></span><div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"><p class="text-decoration-underline">Liste n°5:</p></div></div>
+          <div class="col col-lg-4 border border-light text-center border border-3"></span><div id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"><p class="text-decoration-underline">Liste n°6:</p></div></div>
+        </div>
+      </div>
+      </div>
+    
+      <script src="js/js.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
