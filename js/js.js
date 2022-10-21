@@ -19,15 +19,6 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-// var editButton=document.createElement("button");
-
-// var span2 = document.createElement("SPAN");
-// var editButton = document.createElement("button");
-// var editButton = document.createTextNode("\u23CE");
-// span2.className = "edittt"
-// span2.appendChild(editButton);
-// myNodelist[i].appendChild(span2);
-
 
 
 // Add a "checked" symbol when clicking on a list item
@@ -73,14 +64,6 @@ function newElement() {
     }
   }
 
-	// var editButton=document.createElement("button");
-
-  // var span2 = document.createElement("SPAN");
-  // var editButton = document.createElement("button");
-  // var editButton = document.createTextNode("\u23CE");
-  // span2.className = "edittt"
-  // span2.appendChild(editButton);
-  // myNodelist[i].appendChild(span2);
 
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u2573");
@@ -103,13 +86,6 @@ function newElement() {
   button_modif.appendChild(i);
   li.appendChild(button_modif);
 
-  // for (i = 0; i < edittt.length; i++) {
-  //   edittt[i].onclick = function() {
-  //     var t2 = document.createTextNode(inputValue);
-  //     t2.replaceChild(t)
-  //   }
-  // }
-
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
       var div = this.parentElement;
@@ -117,28 +93,6 @@ function newElement() {
     }
   }
 }
-
-// var editTask=function(){
-//   console.log("Edit Task...");
-//   console.log("Change 'edit' to 'save'");
-//   var listItem=this.parentNode;
-
-//   var editInput=listItem.querySelector('input[type=text]');
-//   var label=listItem.querySelector("label");
-//   var containsClass=listItem.classList.contains("editMode");
-//       //If class of the parent is .editmode
-//       if(containsClass){
-  
-//       //switch to .editmode
-//       //label becomes the inputs value.
-//         label.innerText=editInput.value;
-//       }else{
-//         editInput.value=label.innerText;
-//       }
-  
-//       //toggle .editmode on the parent.
-//       listItem.classList.toggle("editMode");
-//   }
 
 
 // Create a new list 
@@ -222,7 +176,7 @@ function newList(){
     num_list +=1;
   }
 }
-
+//Classe les mémo dans les bonnes catégories
 function class_item(n,li){
   if(document.getElementById("c" +String(n)) && document.getElementById("btnradio"+String(n)).checked == true){
     document.getElementById("myUL"+String(n)).appendChild(li);
@@ -232,6 +186,7 @@ function class_item(n,li){
   }
 }
 
+// Supprime les cartes
 function delete_card(id, id2){
   var element = document.getElementById(id);
   var element2 = document.getElementById(id2)
@@ -244,12 +199,14 @@ function delete_card(id, id2){
   }
 }
 
+// Modifie le nom des mémos et cartes
 function modify(id_m,id_m2){
   var input_modify = prompt("Quelle est le nouveau nom de cette catégorie ?");
   if (input_modify != null){
     document.getElementById(id_m).textContent = input_modify;
-    document.getElementById(id_m2).textContent = input_modify;
-    var button_modif = document.createElement('button');
+    if (id_m2 != null){
+      document.getElementById(id_m2).textContent = input_modify;
+      var button_modif = document.createElement('button');
     button_modif.setAttribute("type", "button");
     button_modif.setAttribute("class", "btn");
     button_modif.setAttribute("arie-label", "Modify");
@@ -260,6 +217,21 @@ function modify(id_m,id_m2){
     i.setAttribute("class", "fa-solid fa-pen-to-square fs-5");
     button_modif.appendChild(i)
     document.getElementById(id_m).appendChild(button_modif);
+    document.getElementById(id_m)
+    }else{
+      var button_modif = document.createElement('button');
+    button_modif.setAttribute("type", "button");
+    button_modif.setAttribute("class", "btn");
+    button_modif.setAttribute("arie-label", "Modify");
+    var id_modify = id_m;
+    var modify_function = "modify('" +id_m+ "')";
+    button_modif.setAttribute("onclick", modify_function);
+    var i = document.createElement('i');
+    i.setAttribute("class", "fa-solid fa-pen-to-square fs-5");
+    button_modif.appendChild(i)
+    document.getElementById(id_m).appendChild(button_modif);
+    document.getElementById(id_m)
+    }
   }
   var myNodelist = document.getElementsByTagName("LI");
   var i;

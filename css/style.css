@@ -126,51 +126,29 @@ body {
     border-radius: 0;
   }
   
-  .addBtn:hover {
-    background-color: rgb(0, 0, 0);
-  }
-
-  .card-header{
-    color: aqua;
-  }
-
-  .container{
-    color: rgb(255, 255, 255);
-  }
-
-  .container.card-header{
-    color: black;
-  }
-  
+  /* Couleur carte titre */
   .dépôt{
     color: aliceblue;
   }
-
-  ul li input[type=text] {
-    display:none;
-  }
   
-  ul li.editMode input[type=text] {
-    display:block;
-  }
-
-  ul li.editMode label {
-    display:none;
-  }
-
+  /* Couleur du texte des add bouton */
   .add{
     color: white;
   }
 
+  /* Couleur titre  */
   .Meme{
     color: #e43434;
   }
 
+  /* Padding colonne */
   .row {
     padding-top: 30px;
     }
     
+  /* Taille et couleur colonne */
   .col {
     color: #fff;
     height: 250px;
   }
+
