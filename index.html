@@ -18,22 +18,22 @@
       <button onclick="newElement()" class="addBtn">Add</button>
         <div id ="btn" class="btn-group bg-dark" role="group" aria-label="Basic radio toggle button group">
           <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-          <label class="btn btn-outline-light" id="btnradio1" for="btnradio1">Voyage</label>
+          <label class="btn btn-outline-light" id="btnradio1_bis" for="btnradio1">Voyage</label>
         
           <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-          <label class="btn btn-outline-light" id="btnradio2" for="btnradio2">Travail</label>
+          <label class="btn btn-outline-light" id="btnradio2_bis" for="btnradio2">Travail</label>
         
           <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-          <label class="btn btn-outline-light" id="btnradio3" for="btnradio3">Loisir</label>
+          <label class="btn btn-outline-light" id="btnradio3_bis" for="btnradio3">Loisir</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-          <label class="btn btn-outline-light" id="btnradio4" for="btnradio4">Rendez-vous</label>
+          <label class="btn btn-outline-light" id="btnradio4_bis" for="btnradio4">Rendez-vous</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-          <label class="btn btn-outline-light" id="btnradio5" for="btnradio5">Sport</label>
+          <label class="btn btn-outline-light" id="btnradio5_bis" for="btnradio5">Sport</label>
 
           <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-          <label class="btn btn-outline-light" id="btnradio6" for="btnradio6">Jeu vidéo</label>
+          <label class="btn btn-outline-light" id="btnradio6_bis" for="btnradio6">Jeu vidéo</label>
         </div>
     </div>
       
@@ -71,7 +71,7 @@
               <div class="container">
                 <div class="row p-0">
                   <div id="m1" class="col-10 text-dark text-center">Voyage
-                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m1')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m1','btnradio1_bis')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
                   </div>
                   <div class="col-1">
                     <button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c1','btnradio1')"></button>
@@ -89,7 +89,7 @@
               <div class="container">
                 <div class="row p-0">
                   <div id="m2" class="col-10 text-dark text-center">Travail
-                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m2')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m2','btnradio2_bis')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
                   </div>
                   <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c2', 'btnradio2')"></button></div>
                 </div>
@@ -106,7 +106,7 @@
               <div class="container">
                 <div class="row p-0">
                   <div id="m3" class="col-10 text-dark text-center">Loisir
-                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m3')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m3','btnradio3_bis')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
                   </div>
                   <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c3', 'btnradio3')"></button></div>
                 </div>
@@ -123,7 +123,7 @@
               <div class="container">
                 <div class="row p-0">
                   <div id="m4" class="col-10 text-dark text-center">Rendez-vous
-                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m4')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m4','btnradio4_bis')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
                   </div>
                   <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c4', 'btnradio4')"></button></div>
                 </div>
@@ -140,7 +140,7 @@
               <div class="container">
                 <div class="row p-0">
                   <div id="m5" class="col-10 text-dark text-center">Sport
-                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m5')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m5','btnradio5_bis')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
                   </div>
                   <div class="col-1"><button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c5', 'btnradio5')"></button></div>
                 </div>
@@ -157,7 +157,7 @@
               <div class="container">
                 <div class="row p-0">
                   <div id="m6" class="col-10 text-dark text-center">Jeu Vidéo
-                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m6')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
+                    <button type="button" class="btn" aria-label="Modify" onclick="modify('m6','btnradio6_bis')"><i class="fa-solid fa-pen-to-square fs-5"></i></button>
                   </div>
                   <div class="col-1">
                     <button type="button" class="btn-close" aria-label="Close" onclick="delete_card('c6', 'btnradio6')"></button>

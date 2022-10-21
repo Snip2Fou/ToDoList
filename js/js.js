@@ -170,11 +170,12 @@ function newList(){
     button_modif.setAttribute("class", "btn");
     button_modif.setAttribute("arie-label", "Modify");
     var id_modify = "m"+String(num_list);
-    var modify_function = "modify('" +id_modify+ "')";
+    var id_radio = "btnradio"+String(num_list);
+    var modify_function = "modify('" +id_modify+ "','" +id_radio+"_bis')";
     button_modif.setAttribute("onclick", modify_function);
     var i = document.createElement('i');
     i.setAttribute("class", "fa-solid fa-pen-to-square fs-5");
-    button_modif.appendChild(i)
+    button_modif.appendChild(i);
     div_col_1.appendChild(button_modif);
     div_row.appendChild(div_col_1);
     var div_col_2 = document.createElement('div');
@@ -183,7 +184,6 @@ function newList(){
     button_delete.setAttribute("type", "button");
     button_delete.setAttribute("class", "btn-close");
     button_delete.setAttribute("arie-label", "Close");
-    var id_radio = "btnradio"+String(num_list);
     var delete_function = "delete_card('" +id_list+ "','" +id_radio+ "')";
     button_delete.setAttribute("onclick", delete_function);
     div_col_2.appendChild(button_delete);
@@ -215,7 +215,7 @@ function newList(){
     document.getElementById("btn").appendChild(input);
     var label = document.createElement("label");
     label.setAttribute("class", "btn btn-outline-light");
-    label.setAttribute('id', id_radio);
+    label.setAttribute('id', id_radio+"_bis");
     label.setAttribute("for", id_radio);
     label.appendChild(document.createTextNode(inputValue2));
     document.getElementById("btn").appendChild(label);
@@ -239,22 +239,22 @@ function delete_card(id, id2){
   if (proceed){
     element.parentNode.removeChild(element);
     element2.remove(element2);
-    var element2 = document.getElementById(id2);
+    var element2 = document.getElementById(id2+"_bis");
     element2.remove(element2);
   }
 }
 
-function modify(id_m){
+function modify(id_m,id_m2){
   var input_modify = prompt("Quelle est le nouveau nom de cette catégorie ?");
-  console.log(input_modify)
   if (input_modify != null){
     document.getElementById(id_m).textContent = input_modify;
+    document.getElementById(id_m2).textContent = input_modify;
     var button_modif = document.createElement('button');
     button_modif.setAttribute("type", "button");
     button_modif.setAttribute("class", "btn");
     button_modif.setAttribute("arie-label", "Modify");
     var id_modify = id_m;
-    var modify_function = "modify('" +id_m+ "')";
+    var modify_function = "modify('" +id_m+ "','"+id_m2+"')";
     button_modif.setAttribute("onclick", modify_function);
     var i = document.createElement('i');
     i.setAttribute("class", "fa-solid fa-pen-to-square fs-5");
